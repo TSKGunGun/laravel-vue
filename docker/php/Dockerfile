@@ -15,7 +15,9 @@ RUN apt update && \
     git zip unzip vim curl \
     default-mysql-client-core \
     libzip-dev zlib1g-dev libpng-dev libjpeg62-turbo-dev libwebp-dev && \
+    pecl install xdebug && \
     docker-php-ext-configure gd --with-jpeg --with-webp && \
-    docker-php-ext-install pdo_mysql bcmath gd zip
+    docker-php-ext-install pdo_mysql bcmath gd zip && \
+    docker-php-enable xdebug
 
 WORKDIR /var/src
