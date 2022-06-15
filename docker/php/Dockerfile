@@ -18,4 +18,4 @@ RUN apt update && \
     docker-php-ext-configure gd --with-jpeg --with-webp && \
     docker-php-ext-install pdo_mysql bcmath gd zip
 
-WORKDIR /var/www/html
+WORKDIR /var/src
