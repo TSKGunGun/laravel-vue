@@ -12,12 +12,11 @@ COPY --from=node:16.15 /usr/local/lib /usr/local/lib
 
 RUN apt update && \
     apt install -y \
-    git zip unzip vim curl \
-    default-mysql-client \
+    git zip unzip vim curl default-mysql-client \
     libzip-dev zlib1g-dev libpng-dev libjpeg62-turbo-dev libwebp-dev && \
     pecl install xdebug && \
     docker-php-ext-configure gd --with-jpeg --with-webp && \
     docker-php-ext-install pdo_mysql bcmath gd zip && \
-    docker-php-enable xdebug
+    docker-php-ext-enable xdebug
     
-WORKDIR /var/src
+WORKDIR /var/www/html
